@@ -47,6 +47,7 @@ group :production do
   gem 'pg', '0.17.1'
   # Help Heroku serve static assets such as images and stylesheets
   gem 'rails_12factor', '0.0.2'
+  gem 'puma', '2.11.1'
 end
 
 group :test do
