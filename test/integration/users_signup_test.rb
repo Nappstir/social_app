@@ -24,5 +24,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template 'users/show'
     # Verify that we receive the correct flash msg
     assert_equal 'Welcome to the Social App!', flash[:success]
+    # Verify after sign up user is logged in
+    assert is_logged_in?
   end
 end
