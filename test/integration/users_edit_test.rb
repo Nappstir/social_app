@@ -28,4 +28,11 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     patch user_path(@user), user: { name: "", email: "foo@example", password: "foo", password_confirmation: "bar" }
     assert_template 'users/edit'
   end
+
+  test 'friendly forwarding with user not logged in' do
+    get edit_user_path(@user)
+    log_in_as(@user)
+    assert_redirected_to edit_user_path(@user)
+  end
+
 end
