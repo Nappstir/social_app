@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :logged_in_user, only: [:edit, :update]
 
   def new
@@ -49,6 +48,7 @@ class UsersController < ApplicationController
       unless logged_in?
         flash[:danger] = "Please log in"
         redirect_to login_path
+      end
     end
 
 end
