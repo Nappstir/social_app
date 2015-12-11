@@ -18,6 +18,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_select "title", "Sign up | Social App"
   end
 
+# Logged & not logged in tests
   test "should redirect edit when not logged in" do
     get :edit, id: @user
     assert_response :redirect
@@ -50,5 +51,21 @@ class UsersControllerTest < ActionController::TestCase
     assert flash.empty?
     assert_redirected_to root_path
   end
+
+  test "should redirect destroy when not logged in" do
+    assert_no_difference 'User.count' do
+      delete :destroy, id: @user
+    end
+      assert_redirected_to login_path
+  end
+
+  test "should redirect destroy when logged in as non-admin" do
+    log_in_as(@other_user)
+    assert_no_difference 'User.count' do
+      delete :destroy, id: @user
+    end
+    assert_redirected_to root_path
+  end
+
 
 end
