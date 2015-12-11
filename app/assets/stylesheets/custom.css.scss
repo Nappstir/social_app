@@ -210,3 +210,18 @@ margin-top: -10px;
 }
 
 /**/
+
+/* users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-radius: 5px;
+    border-bottom: 1px solid gray;
+  }
+}
+
+/**/
