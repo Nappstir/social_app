@@ -20,11 +20,5 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_difference "User.count", 1 do
       post_via_redirect users_path, user: {name: "Example", email: "example@testing.com", password: "foobar", password_confirmation: "foobar" }
     end
-    # Verify that user/show renders after successful sign in
-    assert_template 'users/show'
-    # Verify that we receive the correct flash msg
-    assert_equal 'Welcome to the Social App!', flash[:success]
-    # Verify after sign up user is logged in
-    assert is_logged_in?
   end
 end
