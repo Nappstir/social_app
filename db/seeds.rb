@@ -6,3 +6,10 @@ User.create(name: "Test Testing", email: "testing@test.com", password: "testing"
 99.times do
   User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "testing", password_confirmation: "testing", activated: true)
 end
+
+# take the first 6 users from database & create microposts
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.microposts.create!(content: content) }
+end
