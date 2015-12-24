@@ -53,15 +53,6 @@ class UsersController < ApplicationController
 
   # BEFORE FILTERS
 
-  # Confirms user is logged in
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in"
-        redirect_to login_path
-      end
-    end
-
   # Confirms only logged in user can edit/update themselves
     def correct_user
       @user = User.find(params[:id])
