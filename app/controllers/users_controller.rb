@@ -9,10 +9,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(page: params[:page])
   end
 
   def create
@@ -51,15 +52,6 @@ class UsersController < ApplicationController
     end
 
   # BEFORE FILTERS
-
-  # Confirms user is logged in
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in"
-        redirect_to login_path
-      end
-    end
 
   # Confirms only logged in user can edit/update themselves
     def correct_user
