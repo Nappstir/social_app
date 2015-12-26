@@ -20,4 +20,13 @@ class MicropostsControllerTest < ActionController::TestCase
     assert_redirected_to login_path
   end
 
+  test "should redirect destroy for wrong user micropost" do
+    log_in_as(users(:ExampleUser))
+    micropost = microposts(:cat_video)
+    assert_no_difference "Micropost.count" do
+      delete :destroy, id: micropost
+    end
+    assert_redirected_to root_path
+  end
+
 end
