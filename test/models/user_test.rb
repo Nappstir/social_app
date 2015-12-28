@@ -86,4 +86,16 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  # User following & unfollowing
+  test "should follow and unfollow a user" do
+    ExampleUser = users(:ExampleUser)
+    OtherUser = users(:OtherUser)
+    assert_not ExampleUser.following?(OtherUser)
+    ExampleUser.follow(OtherUser)
+    assert ExampleUser.following?(OtherUser)
+    assert OtherUser.followers.include?(ExampleUser)
+    ExampleUser.unfollow(OtherUser)
+    assert_not ExampleUser.following?(OtherUser)
+  end
+
 end
