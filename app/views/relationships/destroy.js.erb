@@ -1,0 +1,5 @@
+console.log("In destroy.js.erb file");
+
+$("#follow_form").html("<%= escape_javascript(render('users/follow')) %>");
+
+$("#followers").html("<%= @user.followers.count %>");
