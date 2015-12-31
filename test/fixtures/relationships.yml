@@ -2,17 +2,17 @@
 
 one:
   follower: ExampleUser
-  followed: user_4
+  followed: user_1
 
 two:
   follower: ExampleUser
-  followed: user_10
+  followed: user_2
 
 three:
-  follower: user_10
+  follower: user_2
   followed: ExampleUser
 
 four:
-  follower: user_5
+  follower: user_3
   followed: ExampleUser
 

@@ -5,6 +5,11 @@ orange:
   created_at: <%= 10.minutes.ago %>
   user: ExampleUser
 
+red:
+  content: "I just ate a red apple!"
+  created_at: <%= 3.hours.ago %>
+  user: user_1
+
 cat_video:
   content: "Its a grumpy cat.."
   created_at: <%= 2.hours.ago %>
