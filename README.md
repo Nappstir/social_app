@@ -6,4 +6,4 @@ The primary focus of this application was to demonstrate knowledge and understan
 
 The Social App is live and can be visited at: https://protected-tundra-9919.herokuapp.com/
 
-Storage of pictures posted on site are performed by AWS(S3).
+Storage of pictures posted on site are handled by AWS(S3).
